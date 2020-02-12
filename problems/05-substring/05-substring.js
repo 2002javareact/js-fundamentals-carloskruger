@@ -6,7 +6,7 @@ For example substring('hello', 0, 3) should give 'hel' */
 function substring(someStr, startIndex, endIndex) {
    
     if (endIndex > someStr.length||startIndex > someStr.length){
-        console.log( "input was incorrect");
+        throw new Error( "input was incorrect");
     }
     
     let subStr = '';
