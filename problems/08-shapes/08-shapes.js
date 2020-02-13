@@ -42,28 +42,58 @@ function printShape(shape, height, character) {
       lineStr = ''
       break;
     case "Diamond":
-      console.log("Diamond")
-      number_of_blanks = Math.floor(height/2);
-      number_of_chars = 1
-      for(let i = 0; i < height; i++){
-        for(let j = 0;j < number_of_blanks; j++){
-            lineStr = lineStr + ' '
-          }
-        for(let c = 0; c < number_of_chars; c++ ){
-            lineStr = lineStr + character
-          }
-      console.log(lineStr)
+{
+      let lines = (height - 1 )/2
+      let spaces = (height - 1 )/2
+      let lineStr = ''
+      let no_characters = 1
+      for (let i = 0; i < lines; i++){
+          //create the spaces portion of the line
+          for(let s = 0; s < spaces; s++){
+              lineStr = lineStr + " ";
+          };
+          for(let c = 0; c < no_characters; c++){
+              lineStr = lineStr + character;
+           }
+           console.log(lineStr)
+           lineStr = ''
+           no_characters+=2;
+           spaces--;      
       }
+  
+      // mid line
+      for(let x= 0; x < height; x++){
+          lineStr = lineStr + character
+      }
+      console.log(lineStr)
       lineStr = ''
-      break;
+      //above writes the midline
+      spaces = 1;
+      no_characters = height - 2;
+      for (let i = 0; i < lines; i++){
+          //create the spaces portion of the line
+          for(let s = 0; s < spaces; s++){
+              lineStr = lineStr + " ";
+          };
+          for(let c = 0; c < no_characters; c++){
+              lineStr = lineStr + character;
+           }
+           console.log(lineStr)
+           lineStr = ''
+           no_characters-=2;
+           spaces++;     
+  
+          }
+        }
+        break;
       default:
-      console.log("Wrong shape was entered");
+            console.log("Wrong shape was entered");
       break;
         
   }
   
 }
 
-//printShape("Triangle", 3, "$");
-//printShape("Square", 3, "%");
-printShape("Diamond", 5, "*");
+printShape("Triangle", 3, "$");
+printShape("Square", 3, "%");
+printShape("Diamond", 9, "*");
